@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>bankin</title>
+</head>
+<body>
+  <script>
+    async function getData(){
+
+      const res = await fetch('http://localhost:8000/api/info')
+      const data = await res.json()
+      let totalSold = document.getElementById('sold-total')
+      totalSold.innerHTML = `Sold Total: ${data.rounded_sum} EUR`
+      let el = document.getElementById('data-array')
+      data.accounts.forEach(account => {
+        let details = document.createElement('div')
+        details.classList.add('details')
+
+        let detailsTitle = document.createElement('div')
+        detailsTitle.classList.add('details-title')
+        detailsTitle.innerHTML = account.name
+
+        let detailsData = document.createElement('div')
+        detailsData.classList.add('details-data')
+        detailsData.innerHTML =account.balance + ' EUR'
+
+        details.appendChild(detailsTitle)
+        details.appendChild(detailsData)
+        el.appendChild(details)
+      
+      })
+    }
+    getData()
+    
+  </script>
+  <div class="card">
+    <div class="title">Bankin</div>
+    <div class="data">
+      <h1>Mes comptes</h1>
+      <p id="sold-total">Sold Total:</p>
+      <p>Voici le détail de vos soldes:</p>
+<div id="data-array">
+
+</div>
+    </div>
+    <button onclick="getData()" type="button" class="btn">Optimiser mon épargne</div>
+  </div>
+</body>
+</html>

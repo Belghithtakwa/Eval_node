@@ -1,0 +1,33 @@
+html * {
+  font-family: sans-serif;
+  background-color:white;
+  color: #00213C
+}
+.card{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}  
+.title{
+  background-color:#50BAFF;
+  text-align: center;
+  padding: 15px 30px;
+  color: white;
+}
+.btn {
+  background-color:#6562FD;
+  text-align: center;
+  padding: 15px 30px;
+  color: white;
+}
+.data {
+height:100%;
+padding: 30px 50px;
+}
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+}
